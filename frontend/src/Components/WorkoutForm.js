@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useWorkoutContext } from "../Hooks/useWorkoutContext";
 
 const WorkoutForm = () => {
 
@@ -6,6 +7,7 @@ const WorkoutForm = () => {
     const [reps, setReps] = useState("")
     const [load, setLoad] = useState("")
     const [err, setErr] = useState(null)
+    const { dispatch} = useWorkoutContext()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -32,7 +34,9 @@ const WorkoutForm = () => {
             setLoad("")
             setReps("")
             setErr(null)
+            dispatch({type: "CREATE_WORKOUT", payload: json})
             console.log("woooooo a new workout added "+ json);
+
         }
     }
 
