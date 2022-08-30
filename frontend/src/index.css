@@ -65,7 +65,7 @@ header a {
   color: #555;
 }
 
-.workout-details spam {
+.workout-details span {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -106,5 +106,8 @@ div.error {
   color: var(--error);
   border-radius: 4px;
   margin: 20px;
+}
+.error{
+  border: 1px solid var(--error);
 }
 
