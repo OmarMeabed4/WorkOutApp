@@ -6,7 +6,15 @@ const creatToken = (_id) => {
 }
 
 const logIn = async (req, res) => {
-    res.json("Logggged IN")
+    const {email, password} = req.body
+
+    try {
+        const user = await User.logIn(email, password)
+        const token = creatToken(user._id)
+        res.status(200).json({email, user, token})
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
 }
 
 const signUp = async (req, res) => {

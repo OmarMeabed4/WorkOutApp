@@ -44,5 +44,23 @@ userSchema.statics.signUp = async function (email, password){
     return user
 }
 
+userSchema.statics.logIn = async function(email, password){
+    if(!email || !password){
+        throw Error("all fields must be filled")
+    }
+
+    const user = await this.findOne({email})
+    if(!user){
+        throw Error("Email does not exist")
+    }
+
+    const match = await bcrypt.compare(password, user.password)
+    if(!match){
+        throw Error("Password does not exist")
+    }
+
+    return user
+}
+
 //ewqe
 module.exports = mongoose.model("users", userSchema)
