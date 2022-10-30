@@ -111,3 +111,23 @@ div.error {
   border: 1px solid var(--error);
 }
 
+/* navbar */
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a{
+  margin-left: 10px;
+}
+
+/* auth form */
+
+form.signup, form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
