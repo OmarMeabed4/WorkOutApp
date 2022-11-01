@@ -1,13 +1,15 @@
 import {useState} from "react"
+import { useSignup } from "../Hooks/useSignup"
 
 const Signup = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const {signup, isLoading, error} = useSignup()
 
     const handleSignup = async (e) => {
         e.preventDefault()
-        console.log(email, password);
+        await signup(email, password)
     }
 
     return ( 
@@ -27,7 +29,8 @@ const Signup = () => {
                 value = {password}
             />
 
-            <button>Signup</button>
+            <button disabled={isLoading}>Signup</button>
+            {error && <div className="error">{error}</div>}
         </form>
      );
 }
