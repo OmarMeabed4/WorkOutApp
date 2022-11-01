@@ -4,6 +4,7 @@ import { useContext } from "react";
 
 export const useAuthContext = () => {
 //useContext(AuthContext) return the value that we passed in
+
 // the AuthContext.js WorkoutContext.Provider whiche are (state) and (dispatch)
     const context = useContext(AuthContext) 
 
